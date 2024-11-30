@@ -39,14 +39,33 @@ def weather_form(request):
 
 def get_weather(request):
     if request.method == 'POST':
-        latitude = request.POST.get('latitude')
-        longitude = request.POST.get('longitude')
+        city = request.POST.get('city')
         api_key = '2272ed8c8c5a7f05580ea3a049d71ff6'
-        url = f'https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={api_key}'
+        url = f'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={api_key}'
 
         response = requests.get(url)
         data = response.json()
+        
+        if data:
+            latitude = data[0]['lat']
+            longitude = data[0]['lon']
+            url = f'https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={api_key}'
 
-        return render(request, 'weather_result.html', {'data': data})
+            response = requests.get(url)
+            weather_data = response.json()
+            
+            # Combine both data dictionaries into one context dictionary
+            context = { 'city': city, 
+                       'temperature': round(weather_data['main']['temp']- 273), 
+                       'description': weather_data['weather'][0]['description'], 
+                       'humidity': weather_data['main']['humidity'], 
+                       'wind_speed': weather_data['wind']['speed'], 
+                       }
+        else:
+            context = {'error': 'City not found'}
+        
+        return render(request, 'weather_result.html', context)
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
 
