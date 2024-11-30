@@ -1,0 +1,7 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<div id="weatherResult"> <pre>{{ data|safe }}</pre> </div> 
+  <a href="{% url 'weather_form' %}">Back</a>
+{% endblock  %}

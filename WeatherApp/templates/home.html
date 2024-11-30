@@ -1,0 +1,14 @@
+
+{% extends "main.html" %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+ <p>Hello {{ request.user.username }}</p>
+ <a href='{% url "weather_form" %}' >Check weather</a>
+{% else %}
+<p>Hello World</p>
+
+{% endif %}
+
+{% endblock  %}
