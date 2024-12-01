@@ -40,7 +40,7 @@ def weather_form(request):
 def get_weather(request):
     if request.method == 'POST':
         city = request.POST.get('city')
-        api_key = '2272ed8c8c5a7f05580ea3a049d71ff6'
+        api_key = 'PUT IN YOUR API KEY HERE'
         url = f'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={api_key}'
 
         response = requests.get(url)
