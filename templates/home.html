@@ -1,0 +1,99 @@
+
+{% extends "main.html" %}
+
+{% block content %}
+
+  <head>
+    <title>Weather Forecast</title>
+  </head>
+  <body>
+    <div class="weather-container">
+      <div class="weather-info">
+        <div id="date">
+          <span id="span1">Saturday, April 22</span>
+          <span id="span2">11:00</span>
+        </div>
+        
+        <!--  this is the main div which contains the weather condition  -->
+        <div class="weather-status">
+            <h1 id="weather">Heavy Rain</h1>
+        </div>
+        
+        <!-- ignore these -->
+        <div class="hourly-forecast">
+            <div class="hour">09:00 <i class='bx bx-cloud-rain'></i> <span>9°C</span></div>
+            <div class="hour">10:00 <i class='bx bx-cloud-rain'></i> <span>10°C</span></div>
+            <div class="hour">11:00 <i class='bx bx-cloud-rain'></i> <span>10°C</span></div>
+            <div class="hour">12:00 <i class='bx bx-cloud-rain'></i> <span>11°C</span></div>
+            <div class="hour">13:00 <i class='bx bx-cloud-rain'></i> <span>12°C</span></div>
+            <div class="hour">14:00 <i class='bx bx-cloud-rain'></i> <span>14°C</span></div>
+            <div class="hour">15:00 <i class='bx bx-cloud-rain'></i> <span>16°C</span></div>
+            <div class="hour">16:00 <i class='bx bx-cloud-rain'></i> <span>16°C</span></div>
+            <div class="hour">17:00 <i class='bx bx-cloud-rain'></i> <span>16°C</span></div>
+            <div class="hour">18:00 <i class='bx bx-cloud-rain'></i> <span>15°C</span></div>
+            <div class="hour">19:00 <i class='bx bx-cloud-rain'></i> <span>15°C</span></div>
+        </div>
+
+      </div>
+      <div class="current-weather">
+
+         <div class="search__container">
+              <!-- this is the input field -->
+            <input id="city-search" type="text" name="city">
+              <!-- this is the button to search for a city -->
+            <button id="submit-city"><i class="bx bx-map"></i></button>
+        </div>
+    
+
+
+        <!-- This is the display for the city-name -->
+        <h1 id="city-name">Tbilisi, Georgia</h1>
+      <!-- its ends here -->
+
+      <!-- This is the place the temperature value is diaplayed -->
+        <div id="temperature">11°C</div>
+     
+      <!-- This is the display for the wind speed value -->
+        <div id="wind">Northwest, 36.9 km/h</div>
+
+
+        <!-- Ignore this for now -->
+        <div class="forecast">
+          <h2>The Next Days Forecast</h2>
+          <div class="forecast-days">
+            <div class="day">
+              <div class="date">Friday, April 21</div>
+              <div class="condition">Heavy Rain</div>
+              <div class="temp-range">9°C - 16°C</div>
+            </div>
+            <div class="day">
+              <div class="date">Saturday, April 22</div>
+              <div class="condition">Partly Cloudy</div>
+              <div class="temp-range">9°C - 16°C</div>
+            </div>
+            <div class="day">
+              <div class="date">Sunday, April 23</div>
+              <div class="condition">Fog</div>
+              <div class="temp-range">9°C - 16°C</div>
+            </div>
+            <div class="day">
+              <div class="date">Monday, April 24</div>
+              <div class="condition">Partly Cloudy</div>
+              <div class="temp-range">9°C - 16°C</div>
+            </div>
+            <div class="day">
+              <div class="date">Tuesday, April 25</div>
+              <div class="condition">Rain</div>
+              <div class="temp-range">9°C - 16°C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </body>
+</html>
+
+
+{% endblock  %}

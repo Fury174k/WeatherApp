@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<div id="weatherResult">
+   {% if error %}
+    <p>{{ error }}</p>
+    {% else %}
+      <h1>Weather in {{ city }}</h1> 
+      <p>Temperature: {{ temperature }}&deg;C</p> 
+      <p>Description: {{ description }}</p>
+      <p>Humidity: {{ humidity }}%</p>
+      <p>Wind Speed: {{ wind_speed }} m/s</p>
+   {% endif %}
+   </div>
+  <a href="{% url 'weather_form' %}">Back</a>
+{% endblock  %}
